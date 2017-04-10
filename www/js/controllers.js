@@ -20,7 +20,7 @@ angular.module('starter.controllers', [])
     $scope.currentLoc = { lat: 11.932314, lng: 79.807707 };
 
     function initMap(maplocation) {
-      console.log("initmap call....s");
+      //console.log("initmap call....s");
       var loc = maplocation;
 
       map = new google.maps.Map(document.getElementById('map'), {
@@ -42,6 +42,12 @@ angular.module('starter.controllers', [])
 
     }
 
+    function getRandom() {
+      var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      var rand = myArray[Math.floor(Math.random() * myArray.length)];
+      return (rand * 4);
+    }
+
     function callback(results, status) {
       $scope.playlists = [];
       if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -50,7 +56,8 @@ angular.module('starter.controllers', [])
             name: "",
             address: "",
             id: "",
-            balance: ""
+            balance: "",
+            esttime: ""
           }
 
           if (results[i].name.indexOf("HDFC") > -1 || results[i].name.indexOf("hdfc") > -1) {
@@ -58,6 +65,7 @@ angular.module('starter.controllers', [])
             $scope.single.address = results[i].vicinity;
             $scope.single.id = $scope.banklist[1].bankid;
             $scope.single.balance = $scope.banklist[1].amount;
+            $scope.single.esttime = getRandom();
             $scope.playlists.push($scope.single);
           }
 
@@ -66,6 +74,7 @@ angular.module('starter.controllers', [])
             $scope.single.address = results[i].vicinity;
             $scope.single.id = $scope.banklist[0].bankid;
             $scope.single.balance = $scope.banklist[0].amount;
+            $scope.single.esttime = getRandom();
             $scope.playlists.push($scope.single);
           }
 
@@ -74,6 +83,7 @@ angular.module('starter.controllers', [])
             $scope.single.address = results[i].vicinity;
             $scope.single.id = $scope.banklist[2].bankid;
             $scope.single.balance = $scope.banklist[2].amount;
+            $scope.single.esttime = getRandom();
             $scope.playlists.push($scope.single);
           }
 
@@ -82,6 +92,7 @@ angular.module('starter.controllers', [])
             $scope.single.address = results[i].vicinity;
             $scope.single.id = $scope.banklist[3].bankid;
             $scope.single.balance = $scope.banklist[3].amount;
+            $scope.single.esttime = getRandom();
             $scope.playlists.push($scope.single);
           }
 
@@ -90,6 +101,7 @@ angular.module('starter.controllers', [])
             $scope.single.address = results[i].vicinity;
             $scope.single.id = $scope.banklist[4].bankid;
             $scope.single.balance = $scope.banklist[4].amount;
+            $scope.single.esttime = getRandom();
             $scope.playlists.push($scope.single);
           }
 
@@ -98,6 +110,7 @@ angular.module('starter.controllers', [])
             $scope.single.address = results[i].vicinity;
             $scope.single.id = $scope.banklist[5].bankid;
             $scope.single.balance = $scope.banklist[5].amount;
+            $scope.single.esttime = getRandom();
             $scope.playlists.push($scope.single);
           }
 
@@ -106,6 +119,7 @@ angular.module('starter.controllers', [])
             $scope.single.address = results[i].vicinity;
             $scope.single.id = $scope.banklist[6].bankid;
             $scope.single.balance = $scope.banklist[6].amount;
+            $scope.single.esttime = getRandom();
             $scope.playlists.push($scope.single);
           }
 
@@ -189,7 +203,7 @@ angular.module('starter.controllers', [])
     }
 
 
-    $scope.gotoCurrent = function(){
+    $scope.gotoCurrent = function () {
 
       navigator.geolocation.getCurrentPosition(
         function (position) {

@@ -16,7 +16,8 @@
       <ion-item ng-repeat="playlist in playlists1 | filter : greaterThan('balance', userSearch)">
         <b>BANK : </b> {{playlist.name}}
         <br/>
-        <b>AMOUNT : </b> {{playlist.balance}}
+        <!--<b>AMOUNT : </b> {{playlist.balance}}-->
+        <b>EST. WAITTING TIME : </b> {{playlist.esttime}} mins
         <br/>
         <b>ADDRESS : </b> {{playlist.address}}
       </ion-item>
