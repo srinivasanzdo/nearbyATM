@@ -1,0 +1,25 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">NearByATM</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+
+    <div style="padding:20px;">
+      Amount : <input type="number" ng-model="userSearch" style="border: 1px solid #000; padding-left: 5px; width: 50%" placeholder="Enter amount"
+      />
+      <br/> (Search based on cash available)
+    </div>
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists1 | filter : greaterThan('balance', userSearch)">
+        <b>BANK : </b> {{playlist.name}}
+        <br/>
+        <b>AMOUNT : </b> {{playlist.balance}}
+        <br/>
+        <b>ADDRESS : </b> {{playlist.address}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>
